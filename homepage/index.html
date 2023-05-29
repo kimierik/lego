@@ -1,0 +1,27 @@
+<html>
+  <head/>
+  <title>things </title>
+  <body>
+    <div>
+      <p>this is text that is on index html</p>
+    </div>
+
+  </body>
+
+  <script >
+    httpGetAsync("api/getfiles",(e)=>{console.log(e)}); // true for asynchronous
+
+
+    function httpGetAsync(theUrl, callback) {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function() { 
+            if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                callback(xmlHttp.responseText);
+        }
+        xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+        xmlHttp.send(null);
+    }
+
+
+  </script>
+</html>

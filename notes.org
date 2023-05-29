@@ -1,0 +1,149 @@
+
+
+simple go router for static html files
+
+must be able to have a get end point that will delivevr the an html file with the name
+
+some where where you can put files into and it could show up somewhere
+
+idk if that is possible without having js that asks what is on the site
+
+
+* TODO
+- [ ] dockerize
+- [ ] dont leave frontend
+- [ ] make the land pretty
+- [-] frontend to have list of the things we can goto
+
+
+
+
+* routing
+it is simple
+#+begin_src go
+c.Query("param name") //this is how to get fields from the request i think
+#+end_src
+
+
+* getting files
+
+works
+
+
+* home page
+
+rn just js to ask if we have things
+just js that querys the thing and then makes buttons you can press that takes you to the site
+
+js query i think this is it
+
+#+begin_src js
+
+var xmlHttp = new XMLHttpRequest();
+xmlHttp.open("GET", theUrl +'?'+params); // true for asynchronous
+xmlHttp.send();
+
+#+end_src
+
+
+then we need the same thing for getting the shit
+
+
+
+
+
+
+* frontend with framework
+
+idk if i can make this in leptos
+how would that work
+
+homepage would be made in leptos
+then we would still need some way to redir to the html page
+idk man dont like web things
+
+i just realized how miserable this entire thing is if it is not done in a framework
+
+bc i dont really want to repeat the same front end as kemmpi hackaton
+
+
+how do i do it so that i can open a html page ontop of the leptos
+
+first dont use the leptos router
+
+then make reqs to the backend then still i need to open the file ontop of leptos
+
+
+** getting the file info
+
+reqwest crate
+get the json then make some elements from them needs button for the thing
+
+*** getting json
+#+begin_src rust
+
+    let json = get_data().await;
+    //cannot await in not await funtion
+    //what is the work around
+    // since i dont really want t put our views into async that seems like a bad idea
+    //what is create_local_resource
+//the fetch example in leptos rs uses that one
+
+
+#+end_src
+
+
+async fn setstring(mut string){
+get . await
+set to mut string
+}
+
+this is what i will try next    o
+idk if i need to do it with the signals thing that leptos has
+
+
+for some reason its not sending the fucking request and idk why
+
+is this some sort of a really fucked compilation thing where my thing gets compiled away
+please work
+the function does not fucking call omfg
+    WHNY
+    WHY DO NONE OF THE ASYNC FNS GET CALLED?!?
+
+or do they but the log FOR SOME FUCKING REASON does not work in therew
+random rust documentation later we see that it does not work the way i think
+
+https://rust-lang.github.io/async-book/01_getting_started/04_async_await_primer.html
+
+
+
+now it seems to be blocking forever or something idk man
+
+idk how to fix this mabye look at it later
+
+has it been cors this entire time?
+no
+trunk probably crashes at somepoint and does not want to tell me why
+
+
+
+
+*** element
+needs the name and button
+
+
+
+
+
+
+
+** improvements
+this works since we can actually open another file but i dont like that fact that we are going to the backend
+i dont want to leave the frontend
+i want the backend to give the file and then the front to just display it without redirring the user
+but this is fine rn
+do something else
+
+
+
+#eof
