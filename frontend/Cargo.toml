@@ -10,21 +10,12 @@ leptos_router =  {version= "0.3.0" , features=["csr"]}
 leptos = "0.3.0"
 
 #cringe web things
-reqwest = {version="0.11.18", features=["json"]}
-gloo-net = { version = "0.2", features = ["http"] }
-web-sys = { version = "0.3", features = ["AbortController", "AbortSignal"] }
+#reqwest = {version="0.11.18", features=["json"]}
 
 
 #log
 log = "0.4"
 wasm-logger = "0.2.0"
-
-futures = "0.3"
 reqwasm = "0.5.0"
-
-#tokio = { version = "1", features = ["full"] }
-
 serde ={version="1",features=["derive"]}
 
-#[dev-dependencies]
-#wasm-bindgen-test = "0.3"
