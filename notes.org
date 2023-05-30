@@ -15,6 +15,15 @@ idk if that is possible without having js that asks what is on the site
 - [ ] make the land pretty
 - [-] frontend to have list of the things we can goto
 
+Actionables
+
+- get error messeges from trunk
+- try running the examples from the leptos repo
+  (expexially the fetch example)
+- attempt to not crash on getting data from server
+
+
+
 
 
 
@@ -124,7 +133,16 @@ idk how to fix this mabye look at it later
 has it been cors this entire time?
 no
 trunk probably crashes at somepoint and does not want to tell me why
+can we figure out some act
 
+
+
+in leptos nothing uses blocking on call
+the things are called from this async move thing
+
+https://github.com/leptos-rs/leptos/blob/main/examples/hackernews/src/routes/story.rs
+
+i gotta find out what that means and try to use it
 
 
 
