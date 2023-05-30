@@ -20,5 +20,5 @@ then navigate to the frontend directory and run
 trunk serve
 #+end_src
 
-make sure you have [[trunk.dev][trunk]] installed
+make sure you have [[https://trunkrs.dev][trunk]] installed
 
