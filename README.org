@@ -2,7 +2,23 @@
 leptos for frontend Go for backend
 this project exists only for learning 2 tecnologies at the same time
 
-* TODO
+* Todo
 - [ ] Dockerize backend and frontend
 - [ ] make the actual thing work somewhat
 - [ ] make it so that the client does not get redirected to the backend when trying to open document
+
+
+* How to use/start
+** manually
+start the backend with by goind to the backend dir and running
+#+begin_src bash
+go run .
+#+end_src
+
+then navigate to the frontend directory and run
+#+begin_src bash
+trunk serve
+#+end_src
+
+make sure you have [[trunk.dev][trunk]] installed
+
