@@ -9,8 +9,6 @@ edition = "2021"
 leptos_router =  {version= "0.3.0" , features=["csr"]}
 leptos = "0.3.0"
 
-#cringe web things
-#reqwest = {version="0.11.18", features=["json"]}
 
 
 #log
