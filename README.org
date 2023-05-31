@@ -3,7 +3,7 @@ leptos for frontend Go for backend
 this project exists only for learning 2 tecnologies at the same time
 
 * Todo
-- [ ] Dockerize backend and frontend
+- [-] Dockerize backend and frontend
 - [ ] make the actual thing work somewhat
 - [ ] make it so that the client does not get redirected to the backend when trying to open document
 
@@ -22,3 +22,16 @@ trunk serve
 
 make sure you have [[https://trunkrs.dev][trunk]] installed
 
+** docker - manual
+go to the frontend directory and run these commands
+#+begin_src bash
+docker build -t leptosfront:1.0 .
+docker run -p 8080:8080 leptosfront:1.0
+#+end_src
+
+go to the backend directory and run these commands
+
+#+begin_src bash
+docker build -t goback:1.0 .
+docker run -p 3000:3000 goback:1.0
+#+end_src
