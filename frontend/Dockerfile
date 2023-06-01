@@ -9,7 +9,6 @@ COPY ./Cargo.toml /home/app
 COPY ./Cargo.lock /home/app
 COPY ./rust-toolchain.toml /home/app
 COPY ./index.html /home/app
-COPY ./trunk.toml /home/app
 COPY ./container_start_script.sh /home/app
 
 #install the nightly tool chain and wasm target

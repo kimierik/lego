@@ -1,0 +1,16 @@
+
+services:
+  front:
+    build: ./frontend
+    ports:
+      - 8080:8080
+    volumes:
+      - ./frontend:/home/app
+
+  back:
+    build: ./backend
+    ports:
+      - 3000:3000
+    volumes:
+      - ./backend:/home/app
+
