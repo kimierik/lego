@@ -3,8 +3,8 @@ leptos for frontend Go for backend
 this project exists only for learning 2 tecnologies at the same time
 
 * Todo
-- [-] Dockerize backend and frontend
-- [ ] make the actual thing work somewhat
+- [X] Dockerize backend and frontend
+- [-] make the actual thing work somewhat
 - [ ] make it so that the client does not get redirected to the backend when trying to open document
 
 
