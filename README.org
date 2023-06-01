@@ -22,6 +22,14 @@ trunk serve
 
 make sure you have [[https://trunkrs.dev][trunk]] installed
 
+
+** Docker - compose
+run the following command in the root of the project
+#+begin_src bash
+docker-compose up --build
+#+end_src
+
+
 ** docker - manual
 go to the frontend directory and run these commands
 #+begin_src bash
