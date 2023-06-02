@@ -49,7 +49,7 @@ func GetOutboundIP() net.IP {
 
 
 func getFiles(c *gin.Context){
-	c.Header("Access-Control-Allow-Origin", "*")
+    c.Header("Access-Control-Allow-Origin", "*")
 	entries,err:=os.ReadDir("./documents")
 	if err!=nil{
 		log.Fatal(err)
@@ -67,7 +67,8 @@ func getFiles(c *gin.Context){
 }
 
 func getDoc(c *gin.Context){
-	name:=c.Query("name") //this is how to get fields from the request i think
+	name:=c.Query("name") 
 	fmt.Println(name)
+    c.Header("Content-Disposition","attachment; filename="+name)
 	c.File("./documents/"+name)
 }
