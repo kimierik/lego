@@ -15,16 +15,27 @@ fn Element(cx:Scope,data:String)->impl IntoView{
     let win =web_sys::window().expect("no window found"); //get win so we can use the js api's.
                                                           //probably does not need to be fetched in
                                                           //every element
+    //load styles
+    let (name,style_val)=stylers::style_sheet_str!("./styles/style.css");
 
-    view!{ cx, 
-        <div >
-        <button 
-            on:click=move|_|{
-                win.open_with_url(&url).unwrap(); //currently using {window.open(url)} js command
-                                                  //for downloading from the server
-            } >
-            {data}
-        </button>
+    view!{ cx, class = name,
+        <style> {style_val}  </style>
+        <div class="element center">
+
+            <div class="elemContent ">
+                <p>
+                    "Document: " {data} 
+                </p>
+
+                <button 
+                    on:click=move|_|{
+                        win.open_with_url(&url).unwrap(); //currently using {window.open(url)} js command
+                                                          //for downloading from the server
+                    } >
+                "Download file"
+                </button>
+
+            </div>
         </div>
     }
 }
@@ -46,11 +57,16 @@ pub fn App(cx: Scope)->impl IntoView{
         Some(data) => data.into_iter().map(|item|{ view! {cx, <Element data=item/>} }).collect_view(cx)
               //since data is a vec we will iterate it and make views out of them
     };
+    let (name,style_val)=stylers::style_sheet_str!("./styles/style.css");
 
-    view! { cx,
-        <h1>"Documents"</h1>
-        <div>
-            {data_view}
+
+    view! { cx, class=name,
+        <style> {style_val}  </style>
+        <div class="Background">
+            <div class="AppContainer">
+                <h1 class="center">"Documents"</h1>
+                {data_view}
+            </div>
         </div>
     }
 
