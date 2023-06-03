@@ -5,7 +5,7 @@ this project exists only for learning 2 tecnologies at the same time
 * Todo
 - [X] Dockerize backend and frontend
 - [X] make the actual thing work somewhat
-- [-] themes and proper styling
+- [X] themes and proper styling
 - [ ] make it so that the client does not get redirected to the backend when trying to open document
 
 
