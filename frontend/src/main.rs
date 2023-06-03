@@ -2,6 +2,7 @@ use leptos::*;
 
 mod components;
 mod utils;
+pub mod style;
 
 use components::App;
 

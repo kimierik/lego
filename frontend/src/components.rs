@@ -1,3 +1,5 @@
+use std::fmt::format;
+
 use leptos::*;
 use crate::utils::get_file_request;
 
@@ -15,11 +17,9 @@ fn Element(cx:Scope,data:String)->impl IntoView{
     let win =web_sys::window().expect("no window found"); //get win so we can use the js api's.
                                                           //probably does not need to be fetched in
                                                           //every element
-    //load styles
-    let (name,style_val)=stylers::style_sheet_str!("./styles/style.css");
+                                                          //
 
-    view!{ cx, class = name,
-        <style> {style_val}  </style>
+    view!{ cx, 
         <div class="element center">
 
             <div class="elemContent ">
@@ -41,7 +41,30 @@ fn Element(cx:Scope,data:String)->impl IntoView{
 }
 
 
+use crate::style::theme::Themes;
 
+#[component]
+fn ThemeSwitcher(cx:Scope, set_theme:WriteSignal<Themes>)->impl IntoView{
+
+    view! {cx,
+
+        <button
+            on:click =move |_| {
+                set_theme.set( Themes::One);
+            }
+            >
+            "set to one"
+        </button>
+        <button
+            on:click =move |_| {
+                set_theme.set( Themes::Two);
+            }
+            >
+            "set to two"
+        </button>
+    }
+
+}
 
 /*
  * the main app page
@@ -57,13 +80,23 @@ pub fn App(cx: Scope)->impl IntoView{
         Some(data) => data.into_iter().map(|item|{ view! {cx, <Element data=item/>} }).collect_view(cx)
               //since data is a vec we will iterate it and make views out of them
     };
-    let (name,style_val)=stylers::style_sheet_str!("./styles/style.css");
+    //load global styles
+    let (theme,set_theme)=create_signal(cx, crate::style::theme::Themes::One);
 
+    
+    let (name,style_val)= crate::style::get_style(theme);
+    // this probably does not run
+    // whenever theme changes style val must also update 
 
-    view! { cx, class=name,
+    provide_context(cx, theme);
+    let thstr=format!("{:?}",theme());
+
+    view! { cx, 
         <style> {style_val}  </style>
         <div class="Background">
             <div class="AppContainer">
+            <ThemeSwitcher set_theme/>
+            {thstr}
                 <h1 class="center">"Documents"</h1>
                 {data_view}
             </div>
