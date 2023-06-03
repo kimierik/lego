@@ -1,4 +1,3 @@
-use std::fmt::format;
 
 use leptos::*;
 use crate::utils::get_file_request;
@@ -17,7 +16,6 @@ fn Element(cx:Scope,data:String)->impl IntoView{
     let win =web_sys::window().expect("no window found"); //get win so we can use the js api's.
                                                           //probably does not need to be fetched in
                                                           //every element
-                                                          //
 
     view!{ cx, 
         <div class="element center">
@@ -80,23 +78,28 @@ pub fn App(cx: Scope)->impl IntoView{
         Some(data) => data.into_iter().map(|item|{ view! {cx, <Element data=item/>} }).collect_view(cx)
               //since data is a vec we will iterate it and make views out of them
     };
-    //load global styles
+
+    //create signals for themes
     let (theme,set_theme)=create_signal(cx, crate::style::theme::Themes::One);
+    //style val is a string with css in it
+    let (style_val,set_style_val)=create_signal(cx, "".to_string());
 
+    let style_vall= crate::style::get_style(theme);
+    set_style_val(style_vall);
     
-    let (name,style_val)= crate::style::get_style(theme);
-    // this probably does not run
-    // whenever theme changes style val must also update 
+    create_effect(cx, move |_|{
+        set_style_val(crate::style::get_style(theme));
+    });
 
+    //so that other components can use it if ever needed
     provide_context(cx, theme);
-    let thstr=format!("{:?}",theme());
 
     view! { cx, 
         <style> {style_val}  </style>
         <div class="Background">
             <div class="AppContainer">
             <ThemeSwitcher set_theme/>
-            {thstr}
+                {theme}
                 <h1 class="center">"Documents"</h1>
                 {data_view}
             </div>

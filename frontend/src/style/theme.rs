@@ -17,6 +17,20 @@ pub enum Themes{
     Two,
 }
 
+impl std::fmt::Display for Themes {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{:?}", self)
+    }
+}
+
+impl leptos::IntoView for Themes{
+    fn into_view(self, cx: leptos::Scope) -> leptos::View {
+        format!("{}",self).into_view(cx)
+    }
+
+}
+
+
 
 impl Theme{
 

@@ -5,7 +5,7 @@ use leptos::*;
 
 
 //#f0EB8D;
-pub fn get_style( style:ReadSignal<theme::Themes>)->(String,String){
+pub fn get_style( style:ReadSignal<theme::Themes>)->String{
     let thing:theme::Themes=style.get();
 
     let primary=get_color(ColorPrio::Primary,&thing);
@@ -57,7 +57,7 @@ pub fn get_style( style:ReadSignal<theme::Themes>)->(String,String){
         ");
 
     //let (a,b)=stylers::style_str!(raw_str(&mem));
-    ("name".to_string(),mem)
+    mem
 }
 
 
