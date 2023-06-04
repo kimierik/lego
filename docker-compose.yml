@@ -6,6 +6,8 @@ services:
       - 8080:8080
     volumes:
       - ./frontend:/home/app
+    environment:
+      BACKENDIP: back
 
   back:
     build: ./backend

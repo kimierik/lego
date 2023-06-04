@@ -12,7 +12,7 @@ use crate::utils::get_file_request;
 fn Element(cx:Scope,data:String)->impl IntoView{
 
     // this should not be a <a> with href it should open the html ontop or download or somethign
-    let url="http://localhost:3000/api/redirdoc?name=".to_string() +&data;
+    let url="/api/redirdoc?name=".to_string() +&data;
     let win =web_sys::window().expect("no window found"); //get win so we can use the js api's.
                                                           //probably does not need to be fetched in
                                                           //every element

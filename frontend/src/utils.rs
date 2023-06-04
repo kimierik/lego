@@ -7,7 +7,8 @@ use serde::{Deserialize,Serialize};
   */
 pub async fn send_get_request(path:String)-> reqwasm::http::Response {
 
-    let qres= reqwasm::http::Request::get(&("http://localhost:3000/api/".to_string()+&path)).send().await;
+    //http://localhost:3000/api/
+    let qres= reqwasm::http::Request::get(&("api/".to_string()+&path)).send().await;
     match qres {
         Ok(a)=>a,
         Err(e)=>{
